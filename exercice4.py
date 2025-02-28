@@ -1,10 +1,17 @@
-# Création de la class Livre
+# Création de la class Livre            
 class Livre:
     # Constructeur de la classe Livre
     def __init__(self, titre, auteur):
         self.titre = titre
         self.auteur = auteur
+        
+# Création de la class LivreEmpruntable
+class LivreEmpruntable(Livre):
+    # Constructeur de la classe LivreEmpruntable qui hérite de Livre
+    def __init__(self, titre, auteur):
+        super().__init__(titre, auteur)
         self.disponibilite = True
+        
     # Fonction emprunter 
     def emprunter(self):
         if self.disponibilite:
@@ -15,11 +22,6 @@ class Livre:
         if not self.disponibilite:
             self.disponibilite = True
             print(f"Le livre a été retourné.")
-# Création de la class LivreEmpruntable
-class LivreEmpruntable(Livre):
-    # Constructeur de la classe LivreEmpruntable qui hérite de Livre
-    def __init__(self, titre, auteur):
-        super().__init__(titre, auteur)
     
     # Méthode spécifique à LivreEmpruntable
     def __str__(self):
